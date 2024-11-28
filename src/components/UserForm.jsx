@@ -71,12 +71,13 @@ import { useState } from "react"
 const initialUserForm = {
     username: '',
     password: '',
+    age:'',
     email: '',
 }
 export const UserForm = () => {
     const [userForm, setUserForm] = useState (initialUserForm);
 
-    const {username,password,email} = userForm; //Mapeo a los campos, asignamos a cada campo//
+    const {username,password,age,email} = userForm; //Mapeo a los campos, asignamos a cada campo//
     const onInputChange = ({ target}) =>{
        // console.log (target.value)   
         const { name, value} = target;
@@ -91,7 +92,7 @@ export const UserForm = () => {
     const onSubmit = (event) => {
         event.preventDefault(); // prevenir el refresh
 
-        if(!username || !password ||!email){
+        if(!username || !password || !age ||!email){
             alert ('completar los campos faltantes')
             return;
         }
@@ -118,6 +119,14 @@ export const UserForm = () => {
                     placeholder="Password"
                     name="password"
                     value={password}
+                    onChange={onInputChange} 
+                />
+                <input 
+                    type="number"
+                    className="form-control my-3 w-75"
+                    placeholder="edad"
+                    name="age"
+                    value={age}
                     onChange={onInputChange} 
                 />
                 <input 

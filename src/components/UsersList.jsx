@@ -1,6 +1,6 @@
 import { UserRow } from "./UserRow"
 
-export const UsersList = ({ users = [] }) => {
+export const UsersList = ({ handlerRemoveUser, users = [] }) => {
 
     
 
@@ -10,6 +10,7 @@ export const UsersList = ({ users = [] }) => {
                 <tr>
                     <th>#</th>
                     <th>Nombre</th>
+                    <th>edad</th>
                     <th>correo</th>
                     <th>update</th>
                     <th>remove</th>
@@ -17,12 +18,13 @@ export const UsersList = ({ users = [] }) => {
             </thead>
             <tbody>
                 {
-                    users.map(({id, username, email}) => (
+                    users.map(({id, username, age, email}) => (
                         <UserRow 
-                                key={id}
-                                id={id}
-                                username={username}
-                                email={email}
+                                    key={id}
+                                    id={id}
+                                    username={username}
+                                    age={age}
+                                    email={email}
                         />
                     ))
                 }
